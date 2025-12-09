@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldAlert, Terminal, Lock, Unlock, ArrowRight, ArrowLeft, Eye, Fingerprint, Loader2, Volume2, VolumeX, UnlockKeyhole, AlertTriangle } from 'lucide-react';
-import { generateMissionData } from './services/geminiService';
+import { ShieldAlert, Fingerprint, Lock, ArrowRight, ArrowLeft, Eye, Loader2, Volume2, VolumeX, UnlockKeyhole, Unlock } from 'lucide-react';
+import { getMissionData } from './services/geminiService'; // Renomeado conceitualmente, arquivo mantido
 import { AppStep, GeneratedContent, TargetData } from './types';
 import { Button } from './components/Button';
 import { GlitchText } from './components/GlitchText';
@@ -10,14 +10,23 @@ import { soundService } from './services/soundService';
 // Edite estas informações para a pessoa que será revelada
 const TARGET_PROFILE: TargetData = {
   name: "THAMIRYS", 
-  description: "Alvo civil fora do perímetro corporativo. Perfil comportamental: furtivo e de baixa emissão sonora (quieta). Análise de resíduos indica alto consumo de rações táticas crocantes (salgadinhos). Assinatura visual constante: extremidades superiores sempre ocultas por blindagem têxtil estendida (manga comprida), sugerindo proteção contra elementos ambientais ou ocultação de dispositivos.",
-  fixedEnigma: "Sou um sussurro no éter, mas meu consumo racha o silêncio. Minha 'armadura' é perpétua, mas não é para combate. Quem sou eu?",
+  description: "Alvo civil. Características marcantes: Silêncio, vício em salgadinhos de milho e vestuário de alta cobertura.",
+  fixedEnigma: "Sou silenciosa na sala, mas meu lanche faz barulho. Meus braços nunca viram a luz do sol do escritório. Minha sobrancelha julga tudo. Quem sou eu?",
+  
+  // DICAS CRIPTOGRAFADAS (DIFÍCEIS) - Ajustadas para serem mais técnicas e menos óbvias
+  hardClues: [
+    "ANÁLISE COMPORTAMENTAL: O alvo opera em modo 'stealth' auditivo, mas emite sinais visuais de desaprovação através de contrações musculares severas na região frontal superior.",
+    "ANOMALIA TÉRMICA: Detectada blindagem têxtil permanente nos membros superiores. O sujeito recusa adaptação climática, mantendo isolamento total da derme, independente da estação.",
+    "RESÍDUOS FORENSES: Encontrados vestígios de polímeros triangulares à base de Zea mays (milho) e pigmentação artificial excessiva. O sujeito possui dependência de crocância tática."
+  ],
+  
+  // DICAS DE BAIXA SEGURANÇA (FÁCEIS)
   easyClues: [
-    "A DIETA DO ALVO CONSISTE PRIMARIAMENTE EM TRIÂNGULOS DE MILHO.",
+    "A DIETA DO ALVO É BASEADA EM TRIÂNGULOS DE MILHO.",
     "A EMBALAGEM VERMELHA É SUA MARCA REGISTRADA.",
-    "PADRÃO DE SOBRANCELHA ALTAMENTE ARQUEADO DETECTADO.",
-    "PROTOCOLOS DE VESTUÁRIO INDICAM USO CONTÍNUO DE MANGAS LONGAS.",
-    "SONHO PENDENTE: OPERAÇÃO DE TRANSPORTE EM VEÍCULO ELÉTRICO COM CABEAMENTO AÉREO (TROLÉBUS)."
+    "SUA SOBRANCELHA É TÃO ARQUEADA QUE QUASE TOCA O CABELO.",
+    "SEMPRE, ABSOLUTAMENTE SEMPRE, ESTÁ DE MANGA COMPRIDA.",
+    "SONHO DE CONSUMO: TER UM TROLÉBUS DE ESTIMAÇÃO."
   ]
 };
 
@@ -36,7 +45,8 @@ const App: React.FC = () => {
   useEffect(() => {
     const initMission = async () => {
       setIsLoading(true);
-      const content = await generateMissionData(TARGET_PROFILE);
+      // Agora usa apenas dados estáticos
+      const content = await getMissionData(TARGET_PROFILE);
       setMissionContent(content);
       setIsLoading(false);
     };
@@ -563,7 +573,7 @@ const App: React.FC = () => {
       <header className="border-b border-gray-800 p-3 flex justify-between items-center bg-black bg-opacity-90 z-40 shrink-0 sticky top-0 md:static">
         <div className="flex items-center gap-2">
           <div className={`w-3 h-3 rounded-full ${step === AppStep.WARNING ? 'bg-alert-red animate-ping' : 'bg-terminal-green animate-pulse'}`}></div>
-          <span className="text-xs tracking-widest opacity-70">SISTEMA ONLINE // v.2.0.24</span>
+          <span className="text-xs tracking-widest opacity-70">SISTEMA ONLINE // v.2.1.0 (MANUAL MODE)</span>
         </div>
         
         <div className="flex items-center gap-4">

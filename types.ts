@@ -1,6 +1,7 @@
 export interface TargetData {
   name: string;
   description: string;
+  hardClues?: string[];
   easyClues?: string[];
   fixedEnigma?: string;
 }
