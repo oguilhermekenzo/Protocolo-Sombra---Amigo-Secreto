@@ -11,16 +11,19 @@ import { soundService } from './services/soundService';
 const TARGET_PROFILE: TargetData = {
   name: "THAMIRYS", 
   description: "Alvo civil. Características marcantes: Silêncio, vício em salgadinhos de milho e vestuário de alta cobertura.",
-  fixedEnigma: "Sou silenciosa na sala, mas meu lanche faz barulho. Meus braços nunca viram a luz do sol do escritório. Minha sobrancelha julga tudo. Quem sou eu?",
   
-  // DICAS CRIPTOGRAFADAS (DIFÍCEIS) - Ajustadas para serem mais técnicas e menos óbvias
+  // ENIGMA: Poético e paradoxal. Não entrega "Salgadinho" ou "Manga comprida" diretamente.
+  fixedEnigma: "Carrego o inverno nos braços, mesmo quando o sol queima lá fora. Meu silêncio é estratégico, mas a crocância me trai. Minha expressão é uma pergunta permanente, desenhada em arcos altos acima do olhar. Quem sou eu?",
+  
+  // DICAS CRIPTOGRAFADAS (DIFÍCEIS - NÍVEL PROTOCOLO SOMBRA)
+  // Devem soar como um relatório alienígena ou de espionagem sobre um comportamento humano estranho.
   hardClues: [
-    "ANÁLISE COMPORTAMENTAL: O alvo opera em modo 'stealth' auditivo, mas emite sinais visuais de desaprovação através de contrações musculares severas na região frontal superior.",
-    "ANOMALIA TÉRMICA: Detectada blindagem têxtil permanente nos membros superiores. O sujeito recusa adaptação climática, mantendo isolamento total da derme, independente da estação.",
-    "RESÍDUOS FORENSES: Encontrados vestígios de polímeros triangulares à base de Zea mays (milho) e pigmentação artificial excessiva. O sujeito possui dependência de crocância tática."
+    "TOPOGRAFIA FACIAL: O horizonte do alvo apresenta curvaturas parabólicas permanentes. O nível de ceticismo do sujeito é mensurável pela altitude dessas estruturas acima da linha visual.",
+    "ADAPTAÇÃO AMBIENTAL NEGADA: O sujeito opera em um microclima isolado. A superfície dos membros superiores é classificada como 'CONFIDENCIAL' e nunca foi capturada pelos sensores ópticos da base.",
+    "PADRÃO DE CONSUMO: O combustível primário do alvo é geométrico, triangular e acústico. A manipulação do material deixa marcadores químicos de pigmentação intensa nas extremidades digitais."
   ],
   
-  // DICAS DE BAIXA SEGURANÇA (FÁCEIS)
+  // DICAS DE BAIXA SEGURANÇA (FÁCEIS - A REVELAÇÃO)
   easyClues: [
     "A DIETA DO ALVO É BASEADA EM TRIÂNGULOS DE MILHO.",
     "A EMBALAGEM VERMELHA É SUA MARCA REGISTRADA.",
