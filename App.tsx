@@ -10,12 +10,16 @@ import { soundService } from './services/soundService';
 const TARGET_PROFILE: TargetData = {
   name: "THAMIRYS", 
   description: "Alvo civil. Perfil de alta evasão e comportamento sistemático.",
-  fixedEnigma: "Opero em uma biosfera têxtil que ignora as estações do ano. Meu rastro é sonoro e pigmentado, uma fragmentação constante que tinge as extremidades do tato. Em minha fronte reside um monumento ao ceticismo, onde o relevo geográfico se recusa à linearidade. Quem sou eu?",
+  
+  // ENIGMA FINAL: Refinado para ser "Shadow Protocol" mas sem soar "zodo"
+  fixedEnigma: "Minha unidade opera em contenção térmica absoluta, blindada por tecidos que negam a luz externa. Meu processamento nutritivo gera resíduos ocre e emissões acústicas de fratura constante. Na zona frontal, a topografia se eleva em uma curvatura de vigilância perpétua, uma linha analítica que desafia a linearidade do mundo. Quem sou eu?",
+  
   hardClues: [
     "VETOR SUPRAORBITAL: Sensores biométricos detectam uma distorção geométrica permanente na região frontal. A curvatura parabólica dos tecidos atinge altitudes atípicas, sugerindo um estado constante de análise crítica ou incredulidade operacional.",
     "OPACIDADE DÉRMICA BRAQUIAL: O sujeito mantém um protocolo de contenção atmosférica rigoroso. Existe uma recusa sistemática em expor a derme dos membros superiores à radiação solar, resultando em um microclima isolado por barreiras têxteis de alta cobertura.",
     "RESONÂNCIA DE FRATURA MECÂNICA: O processamento de nutrientes pelo alvo gera emissões acústicas de alta frequência por impacto. A manipulação de tais unidades resulta em deposição de sedimentos cromáticos intensos (Espectro Ocre) nos manipuladores biológicos distais."
   ],
+  
   easyClues: [
     "A DIETA DO ALVO É BASEADA EM TRIÂNGULOS DE MILHO.",
     "A EMBALAGEM VERMELHA É SUA MARCA REGISTRADA.",
@@ -219,10 +223,11 @@ const App: React.FC = () => {
       case AppStep.ENIGMA:
         return (
           <div className="w-full max-w-3xl text-center my-8">
-            <Lock className="w-16 h-16 text-cyber-cyan mx-auto mb-4" />
-            <h2 className="text-4xl font-display text-white mb-6 uppercase">O PARADOXO FINAL</h2>
-            <div className="bg-black border-2 border-cyber-cyan p-6 md:p-10 relative shadow-[0_0_30px_rgba(0,243,255,0.2)]">
-              <p className="font-mono text-xl md:text-3xl text-cyber-cyan leading-relaxed">"{missionContent?.enigma}"</p>
+            <Lock className="w-16 h-16 text-cyber-cyan mx-auto mb-4 animate-pulse" />
+            <h2 className="text-4xl font-display text-white mb-6 uppercase tracking-[0.2em] drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">O PARADOXO FINAL</h2>
+            <div className="bg-black/80 border-2 border-cyber-cyan p-6 md:p-10 relative shadow-[0_0_40px_rgba(0,243,255,0.2)] group transition-all duration-500 hover:shadow-[0_0_60px_rgba(0,243,255,0.4)]">
+              <div className="absolute top-0 left-0 w-full h-full bg-cyber-cyan/5 pointer-events-none"></div>
+              <p className="font-mono text-xl md:text-3xl text-cyber-cyan leading-relaxed animate-in fade-in duration-1000">"{missionContent?.enigma}"</p>
             </div>
             <div className="mt-12">
               <Button onClick={handleGoToEasyClues} variant="warning" className="text-sm">
@@ -240,10 +245,8 @@ const App: React.FC = () => {
               <h2 className="text-3xl md:text-5xl font-display text-yellow-400 uppercase tracking-widest drop-shadow-[0_0_10px_rgba(250,204,21,0.4)]">DICAS DE BAIXA SEGURANÇA</h2>
             </div>
             
-            {/* GRID DE EVIDÊNCIAS COM EFEITOS ESPECIAIS */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 shrink-0 max-w-6xl mx-auto w-full px-2">
               
-              {/* EVIDÊNCIA 1: DORITOS (PREMIUM) */}
               <div className="relative group overflow-hidden border border-yellow-400/50 p-4 bg-black/90 shadow-[inset_0_0_20px_rgba(250,204,21,0.1)] hover:shadow-[0_0_25px_rgba(250,204,21,0.25)] transition-all duration-500">
                 <div className="absolute top-0 right-0 bg-yellow-400 text-black font-bold font-mono text-[10px] px-2 py-0.5 z-20">EVIDÊNCIA #891</div>
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none"></div>
@@ -270,21 +273,16 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* EVIDÊNCIA 2: BIOMETRIA (PREMIUM) */}
               <div className="relative group overflow-hidden border border-yellow-400/50 p-4 bg-black/90 shadow-[inset_0_0_20px_rgba(250,204,21,0.1)] hover:shadow-[0_0_25px_rgba(250,204,21,0.25)] transition-all duration-500">
                 <div className="absolute top-0 right-0 bg-yellow-400 text-black font-bold font-mono text-[10px] px-2 py-0.5 z-20">EVIDÊNCIA #892</div>
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.05)_1px,transparent_1px)] bg-[size:10px_10px]"></div>
                 <div className="relative z-10 h-48 flex flex-col items-center justify-center">
                   <svg viewBox="0 0 200 200" className="w-28 md:w-36 h-auto">
-                    {/* Grade de fundo */}
                     <path d="M 0 100 L 200 100 M 100 0 L 100 200" stroke="rgba(250,204,21,0.1)" strokeWidth="1" />
-                    {/* Sobrancelha Arqueada */}
                     <path d="M 30 110 Q 100 -20 170 110" fill="none" stroke="#facc15" strokeWidth="8" strokeLinecap="round" className="animate-pulse" />
-                    {/* Olho */}
                     <path d="M 40 140 Q 100 100 160 140 Q 100 180 40 140 Z" fill="none" stroke="#facc15" strokeWidth="2" />
                     <circle cx="100" cy="140" r="15" fill="none" stroke="#facc15" strokeWidth="1" />
                     <circle cx="100" cy="140" r="6" fill="#facc15" />
-                    {/* Linhas de escaneamento */}
                     <line x1="20" y1="140" x2="180" y2="140" stroke="rgba(250,204,21,0.3)" strokeDasharray="4 4" />
                     <line x1="100" y1="60" x2="100" y2="180" stroke="rgba(250,204,21,0.3)" strokeDasharray="4 4" />
                   </svg>
@@ -295,7 +293,6 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* EVIDÊNCIA 3: VESTUÁRIO (PREMIUM) */}
               <div className="relative group overflow-hidden border border-yellow-400/50 p-4 bg-black/90 shadow-[inset_0_0_20px_rgba(250,204,21,0.1)] hover:shadow-[0_0_25px_rgba(250,204,21,0.25)] transition-all duration-500">
                 <div className="absolute top-0 right-0 bg-yellow-400 text-black font-bold font-mono text-[10px] px-2 py-0.5 z-20">EVIDÊNCIA #893</div>
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/micro-carbon.png')] opacity-10"></div>
@@ -312,7 +309,6 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* EVIDÊNCIA 4: TRANSPORTE (PREMIUM) */}
               <div className="relative group overflow-hidden border border-yellow-400/50 p-4 bg-black/90 shadow-[inset_0_0_20px_rgba(250,204,21,0.1)] hover:shadow-[0_0_25px_rgba(250,204,21,0.25)] transition-all duration-500">
                 <div className="absolute top-0 right-0 bg-yellow-400 text-black font-bold font-mono text-[10px] px-2 py-0.5 z-20">EVIDÊNCIA #894</div>
                 <div className="relative z-10 h-48 flex flex-col items-center justify-center">
@@ -335,7 +331,6 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* LISTA DE DADOS TEXTUAIS */}
             <div className="space-y-2 max-w-4xl mx-auto shrink-0 pb-4 w-full px-4">
               {TARGET_PROFILE.easyClues?.map((clue, index) => (
                 <div key={index} className="border border-yellow-400/20 bg-yellow-400/5 p-3 transform transition-all hover:translate-x-1 duration-300">
@@ -416,7 +411,6 @@ const App: React.FC = () => {
         </footer>
       )}
       
-      {/* Background Decorativo */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03] md:opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
       <div className="fixed top-0 left-0 w-full h-[2px] bg-terminal-green/10 animate-scanline z-[60] pointer-events-none"></div>
     </div>
